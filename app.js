@@ -129,15 +129,15 @@ function download(uri, filename, callback){
 
 function downloadImages(cb){
   console.log('NUMBER OF IMAGES', images.length);
-  if(!fs.existsSync(dest+'images')){
-    fs.mkdirSync(dest+'images');
+  if(!fs.existsSync('images')){
+    fs.mkdirSync('images');
   }
   a.eachLimit(images, 1, function(val, done){
     if(val && val.indexOf('http') !== -1){
       val = val.substring(val.indexOf('http'), val.length);
       console.log('downloading', val);
       let filename = val.replace(/^.*\//, '');
-      download(val, dest+'images/'+filename, done); 
+      download(val, 'images/'+filename, done); 
     } else {
       done();
     }
