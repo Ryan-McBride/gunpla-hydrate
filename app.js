@@ -1,5 +1,5 @@
 'use strict';
-const jsdom = require('node-jsdom');
+const jsdom = require('jsdom/lib/old-api.js');
 const a = require('async');
 const fs = require('fs');
 const request = require('request');
