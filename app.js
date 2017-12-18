@@ -89,16 +89,19 @@ function insert(record) {
         output[index] = record;
         changedFlag = true;
         images.push(record.wikiImage);
+        log(record);
       }
     } else {
       output.push(record);
       changedFlag = true;
       images.push(record.wikiImage);
+      log(record);
     }
   } else {
     changedFlag = true;
     output.push(record);
     images.push(record.wikiImage);
+    log(record);
   }
 };
 
@@ -145,4 +148,8 @@ function downloadImages(cb){
     console.log('downloadedd');
     cb();
   });
+}
+
+function log(record){
+  fs.appendFileSync('gunpla.log', ''+new Date()+' '+JSON.stringify(record)+'\n');
 }
