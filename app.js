@@ -23,6 +23,7 @@ let dest = process.env.dest || '';
 let output = [];
 let images = [];
 let changedFlag = false;
+log('running script')
 
 if(fs.existsSync(dest+'gunpla.json')){
   output = JSON.parse(fs.readFileSync(dest+'gunpla.json'));
