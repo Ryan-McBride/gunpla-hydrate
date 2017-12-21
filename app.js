@@ -132,7 +132,8 @@ function download(uri, filename, callback){
 };
 
 function downloadImages(cb){
-  console.log('NUMBER OF IMAGES', images.length);
+  console.log('images:', images);
+  console.log('number of images', images.length);
   if(!fs.existsSync('images')){
     fs.mkdirSync('images');
   }
@@ -146,7 +147,7 @@ function downloadImages(cb){
       done();
     }
   }, function(){
-    console.log('downloadedd');
+    console.log('downloads complete');
     cb();
   });
 }
