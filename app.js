@@ -120,6 +120,7 @@ function writeJSON (obj) {
     let date = new Date();
     fs.renameSync(dest+'gunpla.json', date+'gunpla.json')
   }
+  console.log('inserting the following object:', obj);
   fs.writeFileSync(dest+'gunpla.json', JSON.stringify(obj));
 }
 
