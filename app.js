@@ -87,18 +87,21 @@ function insert(record) {
     if(index !== -1){
       let unavailable = 'https://s3-us-west-1.amazonaws.com/gunpla/image-not-available.jpg';
       if((output[index].image !== record.image) && (output[index].image === unavailable)){
+        console.log('inserting record:', record);
         output[index] = record;
         changedFlag = true;
         images.push(record.wikiImage);
         log(record);
       }
     } else {
+      console.log('inserting record:', record);
       output.push(record);
       changedFlag = true;
       images.push(record.wikiImage);
       log(record);
     }
   } else {
+    console.log('inserting record:', record);
     changedFlag = true;
     output.push(record);
     images.push(record.wikiImage);
@@ -120,7 +123,6 @@ function writeJSON (obj) {
     let date = new Date();
     fs.renameSync(dest+'gunpla.json', date+'gunpla.json')
   }
-  console.log('inserting the following object:', obj);
   fs.writeFileSync(dest+'gunpla.json', JSON.stringify(obj));
 }
 
